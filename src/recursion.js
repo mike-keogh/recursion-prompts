@@ -51,6 +51,11 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var results = []
+  if(x === y) return results
+  var results = range(x + 1, y)
+  return results
+
 };
 
 // 7. Compute the exponent of a number.
@@ -90,7 +95,9 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-
+  if(y < 0) return multiply(x, y + 1) - x
+  if(y == 0) return 0
+  return x + multiply(x, y - 1)
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
